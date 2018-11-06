@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head> 	
+	
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"></script>
+	
+	<title>
+		AXIS - Global Omnium - 
+	</title>
+	<style> 
+	body {
+        margin: 0;
+        padding: 0;
+    }
+    #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+		box-shadow: 5px 5px 5px #888;
+    }
+ 	</style> 
+</head>  
+<body>	 
+	<div id ="map"> 
+	<script>
+    var map = L.map('map').setView([39.4561165, -0.3545661],16);
+	var MTN50historico = L.tileLayer.wms
+(
+    "http://www.ign.es/wms/primera-edicion-mtn?", 
+    {
+        layers: 'MTN50', // Capa o capas separadas por coma. Consultar los metadatos del servicio
+        format: 'image/png',
+        transparent: true,
+        maxZoom: 20,
+        attribution: '© Instituto Geográfico Nacional de España',
+        }
+).addTo(map);
+
+L.marker([39.4561165, -0.3545661],{draggable: true}).addTo(map);
+</script>
+	</div> 
+</body> 
+</html>
